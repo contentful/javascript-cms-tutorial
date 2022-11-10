@@ -1,14 +1,13 @@
-import express from 'express'
-const app = express()
+import express, { json } from 'express'
 import dotenv from 'dotenv'
-import bodyParser from 'body-parser'
-dotenv.config()
-
 import CMSRoutes from './routes/cmsroutes.js'
+
+const app = express()
+dotenv.config()
 
 // settings
 app.set('port', process.env.PORT || 8000)
-app.use(bodyParser.json())
+app.use(json())
 
 // routes
 app.use('/', CMSRoutes)
